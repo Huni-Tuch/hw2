@@ -141,3 +141,73 @@ new_movie3["studio_id"] = studio3["id"]
 new_movie3.save
 
 puts "movies : #{Movie.all.count}"
+
+
+#Actors Data Dump
+
+Actor.destroy_all
+
+puts "actors : #{Actor.all.count}"
+
+new_actor = Actor.new
+new_actor["name"] = "Christian Bale"
+new_actor.save
+
+new_actor = Actor.new
+new_actor["name"] = "Michael Caine"
+new_actor.save
+
+new_actor = Actor.new
+new_actor["name"] = "Liam Neeson"
+new_actor.save
+
+new_actor = Actor.new
+new_actor["name"] = "Katie Holmes"
+new_actor.save
+
+new_actor = Actor.new
+new_actor["name"] = "Gary Oldman"
+new_actor.save
+
+new_actor = Actor.new
+new_actor["name"] = "Heath Ledger"
+new_actor.save
+
+new_actor = Actor.new
+new_actor["name"] = "Aaron Eckhart"
+new_actor.save
+
+new_actor = Actor.new
+new_actor["name"] = "Maggie Gyllenhaal"
+new_actor.save
+
+new_actor = Actor.new
+new_actor["name"] = "Tom Hardy"
+new_actor.save
+
+new_actor = Actor.new
+new_actor["name"] = "Joseph Gordon-Levitt"
+new_actor.save
+
+new_actor = Actor.new
+new_actor["name"] = "Anne Hathaway"
+new_actor.save
+
+puts "actors : #{Actor.all.count}"
+
+
+#Christian Bale        Bruce Wayne
+#Michael Caine         Alfred
+#Liam Neeson           Ra's Al Ghul
+#Katie Holmes          Rachel Dawes
+#Gary Oldman           Commissioner Gordon
+#Christian Bale        Bruce Wayne
+#Heath Ledger          Joker
+#Aaron Eckhart         Harvey Dent
+#Michael Caine         Alfred
+#Maggie Gyllenhaal     Rachel Dawes
+#Christian Bale        Bruce Wayne
+#Gary Oldman           Commissioner Gordon
+#Tom Hardy             Bane
+#Joseph Gordon-Levitt  John Blake
+#Anne Hathaway 

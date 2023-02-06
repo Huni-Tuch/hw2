@@ -99,19 +99,19 @@
 
 Studio.destroy_all
 
-puts "studios : #{Studio.all.count}"
+#puts "studios : #{Studio.all.count}"
 
 new_studio1 = Studio.new
 new_studio1["name"] = "Warner Bros."
 new_studio1.save
 
-puts "studios : #{Studio.all.count}"
+#puts "studios : #{Studio.all.count}"
 
 #Movie Data Dump
 
 Movie.destroy_all
 
-puts "movies : #{Movie.all.count}"
+#puts "movies : #{Movie.all.count}"
 
 studio1 = Studio.find_by({ "name" => "Warner Bros." })
 
@@ -140,14 +140,14 @@ new_movie3["rated"] = "PG-13"
 new_movie3["studio_id"] = studio3["id"]
 new_movie3.save
 
-puts "movies : #{Movie.all.count}"
+#puts "movies : #{Movie.all.count}"
 
 
 #Actors Data Dump
 
 Actor.destroy_all
 
-puts "actors : #{Actor.all.count}"
+#puts "actors : #{Actor.all.count}"
 
 new_actor = Actor.new
 new_actor["name"] = "Christian Bale"
@@ -193,13 +193,13 @@ new_actor = Actor.new
 new_actor["name"] = "Anne Hathaway"
 new_actor.save
 
-puts "actors : #{Actor.all.count}"
+#puts "actors : #{Actor.all.count}"
 
 #Roles Data Dump
 
 Role.destroy_all
 
-puts "roles : #{Role.all.count}"
+#puts "roles : #{Role.all.count}"
 
 movie = Movie.find_by({ "title" => "Batman Begins" })
 actor = Actor.find_by({ "name" => "Christian Bale" })
@@ -321,4 +321,21 @@ new_role["actor_id"] = actor["id"]
 new_role["character_name"] = "Selina Kyle"
 new_role.save
 
-puts "roles : #{Role.all.count}"
+#puts "roles : #{Role.all.count}"
+
+#Now the printouts
+
+movies_lits = Movie.all
+
+for movie in movies_lits
+
+    the_title = movie["title"]
+    the_year = movie["year_released"]
+    the_rating = movie["rated"]
+    the_studio_id = movie["studio_id"]
+    the_studio = Studio.find_by({ "id" => the_studio_id})
+    the_studio_name = the_studio["name"]
+    
+    puts "#{the_title} #{the_year} #{the_rating} #{the_studio_name}"
+
+end

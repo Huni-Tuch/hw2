@@ -79,18 +79,65 @@
 # TODO!
 
 # Prints a header for the movies output
-puts "Movies"
-puts "======"
-puts ""
+#puts "Movies"
+#puts "======"
+#puts ""
 
 # Query the movies data and loop through the results to display the movies output.
 # TODO!
 
 # Prints a header for the cast output
-puts ""
-puts "Top Cast"
-puts "========"
-puts ""
+#puts ""
+#puts "Top Cast"
+#puts "========"
+#puts ""
 
 # Query the cast data and loop through the results to display the cast output for each movie.
 # TODO!
+
+#Studio Data Dump
+
+Studio.destroy_all
+
+puts "studios : #{Studio.all.count}"
+
+new_studio1 = Studio.new
+new_studio1["name"] = "Warner Bros."
+new_studio1.save
+
+puts "studios : #{Studio.all.count}"
+
+#Movie Data Dump
+
+Movie.destroy_all
+
+puts "movies : #{Movie.all.count}"
+
+studio1 = Studio.find_by({ "name" => "Warner Bros." })
+
+new_movie1 = Movie.new
+new_movie1["title"] = "Batman Begins"
+new_movie1["year_released"] = "2005"
+new_movie1["rated"] = "PG-13"
+new_movie1["studio_id"] = studio1["id"]
+new_movie1.save
+
+studio2 = Studio.find_by({ "name" => "Warner Bros." })
+
+new_movie2 = Movie.new
+new_movie2["title"] = "The Dark Knight"
+new_movie2["year_released"] = "2008"
+new_movie2["rated"] = "PG-13"
+new_movie2["studio_id"] = studio2["id"]
+new_movie2.save
+
+studio3 = Studio.find_by({ "name" => "Warner Bros." })
+
+new_movie3 = Movie.new
+new_movie3["title"] = "The Dark Knight Rises"
+new_movie3["year_released"] = "2012"
+new_movie3["rated"] = "PG-13"
+new_movie3["studio_id"] = studio3["id"]
+new_movie3.save
+
+puts "movies : #{Movie.all.count}"

@@ -325,6 +325,10 @@ new_role.save
 
 #Now the printouts
 
+puts "Movies"
+puts "======"
+puts ""
+
 movies_lits = Movie.all
 
 for movie in movies_lits
@@ -336,6 +340,29 @@ for movie in movies_lits
     the_studio = Studio.find_by({ "id" => the_studio_id})
     the_studio_name = the_studio["name"]
     
-    puts "#{the_title} #{the_year} #{the_rating} #{the_studio_name}"
+    puts "#{the_title} | #{the_year} | #{the_rating} | #{the_studio_name}"
+
+end
+
+puts ""
+puts "Top Cast"
+puts "========"
+puts ""
+
+cast_list = Role.all
+
+for actor in cast_list
+
+    the_movie_id = actor["movie_id"]
+    the_movie = Movie.find_by({ "id" => the_movie_id})
+    the_movie_name = the_movie["title"]
+
+    the_actor_id = actor["actor_id"]
+    the_actor = Actor.find_by({ "id" => the_actor_id})
+    the_actor_name = the_actor["name"]
+
+    the_character = actor["character_name"]
+    
+    puts "#{the_movie_name} | #{the_actor_name} | #{the_character}"
 
 end
